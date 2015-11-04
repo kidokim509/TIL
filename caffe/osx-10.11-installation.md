@@ -27,18 +27,22 @@ http://hoondy.com/2015/04/03/how-to-install-caffe-on-mac-os-x-10-10-for-dummies-
   export LD_LIBRARY_PATH=''
   export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/cuda/lib:$HOME/anaconda/lib:/usr/local/lib:/usr/lib
 ```
+  
 5. General Dependencies
   * AppStore에서 XCODE 설치
+  * Libraries
 ```bash
   brew install -vd snappy leveldb gflags glog szip lmdb
   brew tap homebrew/science
   brew install opencv #hdf5 (anaconda has hdf5)
 ```
+  
 6. Remaining dependencies, with / without Python
 ```bash
   brew install --build-from-source --with-python -vd protobuf
   brew install --build-from-source -vd boost boost-python
 ```
+
 7. BLAS
   * Already installed as the Accelerate / vecLib Framework. 
   * On OSX 10.9, BLAS is provided by the Accelerate / vecLib framework natively by Apple. But when running the caffe tests, there is some numerical instability using those BLAS libraries. 
@@ -76,4 +80,3 @@ Makefile.config
 * make test
 * make runtest
   * https://github.com/BVLC/caffe/issues/2320
-
